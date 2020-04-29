@@ -30,7 +30,7 @@
         {
             this.txtStartingPosition = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.clbLocations = new System.Windows.Forms.CheckedListBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.chkHideCheckedLocations = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
@@ -52,13 +52,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Current Position:";
             // 
-            // checkedListBox1
+            // clbLocations
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(15, 62);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(219, 334);
-            this.checkedListBox1.TabIndex = 2;
+            this.clbLocations.CheckOnClick = true;
+            this.clbLocations.FormattingEnabled = true;
+            this.clbLocations.Location = new System.Drawing.Point(15, 62);
+            this.clbLocations.Name = "clbLocations";
+            this.clbLocations.Size = new System.Drawing.Size(219, 334);
+            this.clbLocations.TabIndex = 2;
+            this.clbLocations.SelectedIndexChanged += new System.EventHandler(this.clbLocations_SelectedIndexChanged);
             // 
             // btnReset
             // 
@@ -86,7 +88,7 @@
             this.ClientSize = new System.Drawing.Size(248, 407);
             this.Controls.Add(this.chkHideCheckedLocations);
             this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.clbLocations);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtStartingPosition);
             this.Name = "Form1";
@@ -101,7 +103,7 @@
 
         private System.Windows.Forms.TextBox txtStartingPosition;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox clbLocations;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.CheckBox chkHideCheckedLocations;
     }
