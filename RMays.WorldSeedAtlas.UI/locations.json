@@ -1,0 +1,44 @@
+{
+  "LocationTypes": [
+    "Overworld Dungeon",
+    "Seed Dungeon",
+    "Landmark",
+    "Town"
+  ],
+  "Locations": [
+    {
+      "Name": "Glacial Trail",
+      "BossName": "Warrus",
+      "Type": "Overworld Dungeon",
+      "XCoord": "D",
+      "YCoord": "24"
+    },
+    {
+      "Name": "Ruins",
+      "BossName": "Boris",
+      "Type": "Overworld Dungeon",
+      "XCoord": "U",
+      "YCoord": "26"
+    },
+    {
+      "Name": "Quake Rocks",
+      "BossName": "Wyn",
+      "Type": "Overworld Dungeon",
+      "XCoord": "J",
+      "YCoord": "12"
+    },
+    {
+      "Name": "Canyon",
+      "BossName": "Blok",
+      "Type": "Overworld Dungeon",
+      "XCoord": "Y",
+      "YCoord": "4"
+    },
+    {
+      "Name": "World Tree",
+      "Type": "Landmark",
+      "XCoord": "AB",
+      "YCoord": "28"
+    }
+  ]
+}
