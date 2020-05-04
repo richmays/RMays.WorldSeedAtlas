@@ -9,7 +9,7 @@ namespace RMays.WorldSeedAtlas
     public class SmartLocation : Location, IComparable<SmartLocation>
     {
         public bool Checked { get; set; } = false;
-        public bool Visible { get; set; } = true;
+        //public bool Visible { get; set; } = true;
         public int Distance { get; set; } = 999;
 
         public int CompareTo(SmartLocation other)

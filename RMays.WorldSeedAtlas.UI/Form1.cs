@@ -47,14 +47,10 @@ namespace RMays.WorldSeedAtlas.UI
         private void UpdateLocations()
         {
             clbLocations.Items.Clear();
+
             var LocationsToAdd = new List<SmartLocation>();
             foreach(var item in locationList)
             {
-                if (!item.Visible)
-                {
-                    continue;
-                }
-
                 if (item.Checked && this.chkHideCheckedLocations.Checked)
                 {
                     continue;
@@ -65,7 +61,7 @@ namespace RMays.WorldSeedAtlas.UI
             }
 
             LocationsToAdd.Sort();
-            foreach(var location in LocationsToAdd)
+            foreach (var location in LocationsToAdd)
             {
                 clbLocations.Items.Add(location.ToString(), location.Checked);
             }
@@ -88,24 +84,33 @@ namespace RMays.WorldSeedAtlas.UI
 
         private void clbLocations_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            if (!chkHideCheckedLocations.Checked) return;
-
+            // Record all the checks.  Also, if something was unchecked, remove the check.
             for (var i = 0; i < clbLocations.Items.Count; i++)
             {
-                locationList.ElementAt(i).Visible = true;
-                locationList.ElementAt(i).Checked = clbLocations.CheckedItems.Contains(locationList.ElementAt(i).ToString());
+                var locationName = locationList.ElementAt(i).Name;
+                var isChecked = clbLocations.CheckedItems.Contains(locationList.ElementAt(i).ToString());
+                locationList.First(x => x.Name == locationName).Checked = isChecked;
             }
-            */
 
             /*
             foreach(var item in clbLocations.CheckedItems)
             {
                 var location = locationList.Where(x => x.ToString() == item.ToString()).FirstOrDefault();
                 location.Checked = true;
-                location.Visible = false;
             }
             */
+
+            UpdateLocations();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            foreach (var item in locationList)
+            {
+                item.Checked = false;
+            }
+
+            UpdateLocations();
         }
     }
 }
