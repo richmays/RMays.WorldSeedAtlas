@@ -21,6 +21,11 @@ namespace RMays.WorldSeedAtlas
                 Row = row;
                 Col = col;
             }
+
+            public override string ToString()
+            {
+                return $"({Row},{Col})";
+            }
         }
 
         public static int GetDistance(string loc1, string loc2)
@@ -30,8 +35,8 @@ namespace RMays.WorldSeedAtlas
             if (!TryGetCoord(loc1, out coord1)) return -1;
             if (!TryGetCoord(loc2, out coord2)) return -1;
 
-            return Math.Min(Math.Abs((coord1.Row - coord2.Row) % 28), Math.Abs((coord2.Row - coord1.Row) % 28))
-                + Math.Min(Math.Abs((coord1.Col - coord2.Col) % 28), Math.Abs((coord2.Col - coord1.Col) % 28));
+            return Math.Min((28 + coord1.Row - coord2.Row) % 28, (28 + coord2.Row - coord1.Row) % 28)
+                + Math.Min((28 + coord1.Col - coord2.Col) % 28, (28 + coord2.Col - coord1.Col) % 28);
         }
 
         private static bool TryGetCoord(string loc, out Coord result)
@@ -80,7 +85,7 @@ namespace RMays.WorldSeedAtlas
                 if (rowPart[0] >= 'A' && rowPart[0] <= 'Z')
                 {
                     // Convert the single-character row to a number from 0 to 25.
-                    result.Row = rowPart[0] - 'A' + 1;
+                    result.Row = rowPart[0] - 'A';
                 }
                 else
                 {
